@@ -3,9 +3,9 @@ kind: Ingress
 metadata:
   name: ingress-agic-sitio1-sitio2
   annotations:
-    kubernetes.io/ingress.class: azure/application-gateway
     appgw.ingress.kubernetes.io/backend-path-prefix: "/"
 spec:
+  ingressClassName: azure/application-gateway
   rules:
     - http:
         paths:
@@ -32,5 +32,6 @@ spec:
                 name: sitio2
                 port:
                   number: 80
+
 
 # kubectl apply -f rutas-IngresController.yaml
