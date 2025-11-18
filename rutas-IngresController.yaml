@@ -1,0 +1,36 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-agic-sitio1-sitio2
+  annotations:
+    kubernetes.io/ingress.class: azure/application-gateway
+    appgw.ingress.kubernetes.io/backend-path-prefix: "/"
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Exact
+            backend:
+              service:
+                name: aspnetapp
+                port:
+                  number: 80
+
+          - path: /sitio1
+            pathType: Exact
+            backend:
+              service:
+                name: sitio1
+                port:
+                  number: 80
+
+          - path: /sitio2
+            pathType: Exact
+            backend:
+              service:
+                name: sitio2
+                port:
+                  number: 80
+
+# kubectl apply -f rutas-IngresController.yaml
