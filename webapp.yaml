@@ -10,4 +10,7 @@ spec:
       image: 040519/cna-webapp
       env:
         - name: APP_COLOR
-          value: blue
+          valueFrom:
+            configMapKeyRef:
+              name: webapp-cm
+              key: APP_COLOR
