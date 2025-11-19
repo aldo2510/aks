@@ -1,9 +1,8 @@
------
 apiVersion: v1
 kind: Pod
 metadata:
   name: pod-env-secret
-  namespace: cloudnative
+  namespace: cloudnative-secret
 spec:
   containers:
     - name: demo-app
