@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hpa-load-generator
+  namespace: lab-hpa
+spec:
+  containers:
+    - name: busybox
+      image: busybox:1.28
+      command: ["/bin/sh"]
+      args:
+        - "-c"
+        - |
+          while true; do
+            for i in $(seq 1 10); do
+              wget -q -O- http://10.0.26.227:80 & 
+            done
+            wait
+          done
