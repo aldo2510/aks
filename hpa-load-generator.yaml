@@ -13,7 +13,7 @@ spec:
         - |
           while true; do
             for i in $(seq 1 10); do
-              wget -q -O- http://10.0.26.227:80 & 
+              wget -q -O- http://10.0.147.141:80 & 
             done
             wait
           done
